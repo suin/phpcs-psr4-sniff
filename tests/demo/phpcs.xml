@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<ruleset name="OwnCodingStandard"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd">
+    <file>component1</file>
+    <file>component2</file>
+    <file>unmanaged-component</file>
+    <arg value="s"/>
+    <arg name="colors"/>
+
+    <!-- Specify directory that composer.json is placed. Usually it would be
+    project root directory. -->
+    <arg name="basepath" value="."/>
+
+    <!-- Relative path to your ruleset.xml -->
+    <rule ref="../../src/Suin"/>
+    <!-- like: -->
+    <!--<rule ref="vendor/suin/phpcs-psr4-sniff/src/Suin"/>-->
+
+    <!-- Optional: If you have to specify composer.json path, please add
+    following section. -->
+    <rule ref="Suin.Classes.PSR4">
+        <properties>
+            <!-- composerJsonPath must be relative path to "basepath" -->
+            <property name="composerJsonPath" value="composer.json"/>
+        </properties>
+    </rule>
+</ruleset>

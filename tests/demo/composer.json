@@ -1,0 +1,14 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Demo\\Component1\\": "component1/src",
+            "Demo\\Component2\\": "component2/src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Demo\\Tests\\Component1\\": "component1/tests",
+            "Demo\\Tests\\Component2\\": "component2/tests"
+        }
+    }
+}
