@@ -11,12 +11,6 @@ A custom [PHP Code Sniffer] sniff to help to find classes that is not compliant 
 
 Please visit [./tests/demo](/tests/demo), if you would like to try this sniff.
 
-```
-# after clone this repository
-composer install
-vendor/bin/phpcs --standard=tests/demo/phpcs.xml --report=code
-```
-
 ## Features
 
 ### Classes, interfaces and traits

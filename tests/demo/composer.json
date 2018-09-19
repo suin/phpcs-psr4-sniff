@@ -10,5 +10,8 @@
             "Demo\\Tests\\Component1\\": "component1/tests",
             "Demo\\Tests\\Component2\\": "component2/tests"
         }
+    },
+    "require-dev": {
+        "suin/phpcs-psr4-sniff": "^1.0"
     }
 }
