@@ -9,7 +9,7 @@ final class AutoloadabilityInspectors
     /**
      * @var AutoloadabilityInspector[]
      */
-    private $inspectors;
+    private $inspectors = [];
 
     public function __construct(AutoloadabilityInspector ...$inspectors)
     {

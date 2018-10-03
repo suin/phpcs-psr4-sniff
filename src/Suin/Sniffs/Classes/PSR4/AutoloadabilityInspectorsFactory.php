@@ -22,14 +22,13 @@ final class AutoloadabilityInspectorsFactory
         return self::getPsr4Directories($resolvedComposerJsonPath);
     }
 
-    private static function getPsr4Directories(string $filename): AutoloadabilityInspectors
-    {
+    private static function getPsr4Directories(
+        string $filename
+    ): AutoloadabilityInspectors {
         $contents = \file_get_contents($filename);
 
         if ($contents === false) {
-            throw new RuntimeException(
-                "Unable to read file: {$filename}"
-            );
+            throw new RuntimeException("Unable to read file: {$filename}");
         }
         $data = \json_decode($contents, true);
 

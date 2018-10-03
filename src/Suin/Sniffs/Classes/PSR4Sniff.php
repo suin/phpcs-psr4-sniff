@@ -48,11 +48,7 @@ final class PSR4Sniff implements Sniff
      */
     public function register(): array
     {
-        return [
-            \T_CLASS,
-            \T_INTERFACE,
-            \T_TRAIT,
-        ];
+        return [\T_CLASS, \T_INTERFACE, \T_TRAIT];
     }
 
     /**
@@ -111,11 +107,6 @@ final class PSR4Sniff implements Sniff
         return TokenHelper::findNext($phpcsFile, \T_STRING, $typePointer + 1);
     }
 
-    /**
-     * @param File $phpcsFile
-     * @param $typePointer
-     * @return ClassFileUnderInspection
-     */
     private function getClassFileOf(
         File $phpcsFile,
         $typePointer
