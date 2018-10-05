@@ -18,7 +18,6 @@ final class AutoloadabilityInspectors
 
     /**
      * @noinspection MultipleReturnStatementsInspection
-     * @param ClassFileUnderInspection $classFile
      */
     public function inspect(
         ClassFileUnderInspection $classFile

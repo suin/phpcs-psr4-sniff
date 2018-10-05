@@ -14,7 +14,7 @@ final class DemoTest extends TestCase
     /**
      * @test
      */
-    public function runDemo(): void
+    public function run_demo(): void
     {
         $report = self::checkFile(
             __DIR__ . '/../demo/component2/src/MissingNamespaceClass.php',
