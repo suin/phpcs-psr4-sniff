@@ -30,6 +30,12 @@ final class AutoloadabilityInspector
             new PSR4UnrelatedClass();
     }
 
+    private function classFileIsUnderBaseDirectory(
+        ClassFileUnderInspection $classFile
+    ): bool {
+        return \strpos($classFile->getFileName(), $this->baseDirectory) === 0;
+    }
+
     private function inspectAutoloadability(
         ClassFileUnderInspection $classFile
     ): InspectionResult {
@@ -76,19 +82,13 @@ final class AutoloadabilityInspector
         return $this->namespacePrefix . $relativeClassName;
     }
 
-    private function classFileIsUnderBaseDirectory(
-        ClassFileUnderInspection $classFile
-    ): bool {
-        return \strpos($classFile->getFileName(), $this->baseDirectory) === 0;
+    private function directoryEndsWithSlash(): bool
+    {
+        return \substr($this->baseDirectory, -1) === '/';
     }
 
     private function namespaceEndsWithBackslash(): bool
     {
         return \substr($this->namespacePrefix, -1) === '\\';
-    }
-
-    private function directoryEndsWithSlash(): bool
-    {
-        return \substr($this->baseDirectory, -1) === '/';
     }
 }

@@ -34,14 +34,14 @@ final class PSR4Sniff implements Sniff
     public $composerJsonPath = 'composer.json';
 
     /**
-     * @var AutoloadabilityInspectors
-     */
-    private $autoloadabilityInspectors;
-
-    /**
      * @var int
      */
     private $initialization = self::UNINITIALIZED;
+
+    /**
+     * @var AutoloadabilityInspectors
+     */
+    private $autoloadabilityInspectors;
 
     /**
      * {@inheritdoc}
@@ -83,6 +83,16 @@ final class PSR4Sniff implements Sniff
         }
     }
 
+    private function getClassFileOf(
+        File $phpcsFile,
+        $typePointer
+    ): ClassFileUnderInspection {
+        return new ClassFileUnderInspection(
+            $phpcsFile->getFilename(),
+            ClassHelper::getFullyQualifiedName($phpcsFile, $typePointer)
+        );
+    }
+
     private function addError(
         File $phpcsFile,
         NonAutoloadableClass $result,
@@ -105,15 +115,5 @@ final class PSR4Sniff implements Sniff
         int $typePointer
     ): ?int {
         return TokenHelper::findNext($phpcsFile, \T_STRING, $typePointer + 1);
-    }
-
-    private function getClassFileOf(
-        File $phpcsFile,
-        $typePointer
-    ): ClassFileUnderInspection {
-        return new ClassFileUnderInspection(
-            $phpcsFile->getFilename(),
-            ClassHelper::getFullyQualifiedName($phpcsFile, $typePointer)
-        );
     }
 }
