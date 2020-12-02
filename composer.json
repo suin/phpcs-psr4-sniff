@@ -27,7 +27,7 @@
         "issues": "https://github.com/suin/php/issues"
     },
     "require": {
-        "php": ">=7.1 <7.4.0",
+        "php": ">=7.1",
         "ext-json": "*",
         "slevomat/coding-standard": ">=4.7 <5.0.0",
         "squizlabs/php_codesniffer": ">=3.3 <4.0.0"
