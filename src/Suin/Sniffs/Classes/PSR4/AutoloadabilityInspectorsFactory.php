@@ -40,20 +40,30 @@ final class AutoloadabilityInspectorsFactory
         $psr4Directories = [];
 
         if (isset($data['autoload']['psr-4'])) {
-            foreach ($data['autoload']['psr-4'] as $namespace => $dir) {
-                $psr4Directories[] = new AutoloadabilityInspector(
-                    \dirname($filename) . '/' . $dir,
-                    $namespace
-                );
+            foreach ($data['autoload']['psr-4'] as $namespace => $dirs) {
+                if (!is_array($dirs)) {
+                    $dirs = [$dirs];
+                }
+                foreach ($dirs as $dir) {
+                    $psr4Directories[] = new AutoloadabilityInspector(
+                        \dirname($filename) . '/' . $dir,
+                        $namespace
+                    );
+                }
             }
         }
 
         if (isset($data['autoload-dev']['psr-4'])) {
-            foreach ($data['autoload-dev']['psr-4'] as $namespace => $dir) {
-                $psr4Directories[] = new AutoloadabilityInspector(
-                    \dirname($filename) . '/' . $dir,
-                    $namespace
-                );
+            foreach ($data['autoload-dev']['psr-4'] as $namespace => $dirs) {
+                if (!is_array($dirs)) {
+                    $dirs = [$dirs];
+                }
+                foreach ($dirs as $dir) {
+                    $psr4Directories[] = new AutoloadabilityInspector(
+                        \dirname($filename) . '/' . $dir,
+                        $namespace
+                    );
+                }
             }
         }
         return new AutoloadabilityInspectors(...$psr4Directories);
