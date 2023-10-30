@@ -82,7 +82,7 @@ final class AutoloadabilityInspectorsFactory
     {
         if (!\is_file($filename)) {
             throw new InvalidArgumentException(
-                "composer.json file not found: ${filename}"
+                "composer.json file not found: {$filename}"
             );
         }
     }
@@ -91,7 +91,7 @@ final class AutoloadabilityInspectorsFactory
     {
         if (!\is_readable($filename)) {
             throw new InvalidArgumentException(
-                "composer.json file is not readable: ${filename}"
+                "composer.json file is not readable: {$filename}"
             );
         }
     }
